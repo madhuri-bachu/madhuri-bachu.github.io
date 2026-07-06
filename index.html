@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhuri Bachu | Senior QA Engineer</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #0f1b31;
+      --surface: rgba(12, 21, 39, 0.82);
+      --surface-strong: #111c33;
+      --text: #eef3ff;
+      --muted: #b6c2df;
+      --line: rgba(255, 255, 255, 0.1);
+      --accent: #61dafb;
+      --accent-2: #9f7aea;
+      --accent-3: #34d399;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --warm: #ffd166;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(97, 218, 251, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(159, 122, 234, 0.16), transparent 24%),
+        linear-gradient(180deg, var(--bg), #0d1728 55%, #08111f);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+      opacity: 0.25;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 95%);
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      padding: 72px 0 40px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background: linear-gradient(145deg, rgba(17, 28, 51, 0.92), rgba(12, 21, 39, 0.86));
+      box-shadow: var(--shadow);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -50% auto;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(97, 218, 251, 0.24), transparent 68%);
+      filter: blur(4px);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(97, 218, 251, 0.12);
+      color: var(--accent);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent-3);
+      box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.12);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      display: block;
+      background: linear-gradient(90deg, #ffffff, #9adfff 45%, #c1b2ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: #05111e;
+      background: linear-gradient(90deg, var(--accent), #8ef0ff);
+      box-shadow: 0 10px 30px rgba(97, 218, 251, 0.28);
+    }
+
+    .button.secondary {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .button.ghost {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.12);
+      background: transparent;
+    }
+
+    .button.ghost:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .link-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(97, 218, 251, 0.36);
+      color: #ffffff;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .feature-card .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--warm);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .feature-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p,
+    .feature-card li {
+      color: var(--muted);
+    }
+
+    .feature-card ul {
+      padding-left: 18px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .highlight-box {
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid rgba(97, 218, 251, 0.16);
+      background: linear-gradient(135deg, rgba(97, 218, 251, 0.08), rgba(159, 122, 234, 0.08));
+    }
+
+    .highlight-box h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .highlight-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .highlight-list li+li {
+      margin-top: 10px;
+    }
+
+    .highlight-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.75em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-3);
+    }
+
+    .hero-panel {
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .profile-pic-wrap {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(97, 218, 251, 0.45), rgba(159, 122, 234, 0.45), rgba(52, 211, 153, 0.45));
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .profile-pic {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      width: 100%;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 12px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .section {
+      margin-bottom: 22px;
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section h2::after {
+      content: "";
+      width: 54px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .summary {
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(97, 218, 251, 0.4);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .company {
+      font-size: 1.12rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .role {
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .card li+li {
+      margin-top: 8px;
+    }
+
+    .achievement {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(97, 218, 251, 0.08);
+      border: 1px solid rgba(97, 218, 251, 0.16);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(97, 218, 251, 0.16), rgba(159, 122, 234, 0.12));
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-weight: 600;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 6px rgba(97, 218, 251, 0.1);
+    }
+
+    .meta {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .contact-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-item strong {
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 28px 16px 40px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    [data-reveal].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 900px) {
+
+      .hero-card,
+      .grid-2,
+      .contact-grid,
+      .feature-grid,
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+
+      .hero-panel {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 28px;
+      }
+
+      .container {
+        width: min(100% - 20px, 1120px);
+      }
+
+      .hero-card,
+      .section {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-pic-wrap {
+        width: 176px;
+        height: 176px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card" data-reveal>
+          <div>
+            <div class="eyebrow">Senior QA Engineer</div>
+            <h1>Madhuri Bachu<span>Building quality into every release.</span></h1>
+            <p>
+              Detail-oriented QA professional with hands-on experience in manual and automation
+              testing, device validation, Wi-Fi protocol testing, and Agile collaboration.
+              I focus on reducing defects early, improving execution quality, and helping teams ship
+              with confidence.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#contact">Contact Me</a>
+              <a class="button secondary" href="#experience">View Experience</a>
+              <a class="button ghost" href="#featured-work">Featured Work</a>
+            </div>
+            <div class="link-row" aria-label="Professional links">
+              <a class="link-pill" href="https://www.linkedin.com/in/madhuri-bachu-789389244/" target="_blank"
+                rel="noreferrer">LinkedIn</a>
+              <a class="link-pill" href="/assets/Madhuri_Bachu_Resume.pdf"
+                download="/assets/Madhuri_Bachu_Resume.pdf">Resume PDF</a>
+            </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="profile-pic-wrap">
+              <img src="/assets/Madhuri_Bachu.jpg" alt="Madhuri Bachu profile photo" class="profile-pic">
+            </div>
+            <div class="mini-stats">
+              <div class="stat">
+                <strong>5+ Years</strong>
+                <span>QA experience</span>
+              </div>
+              <div class="stat">
+                <strong>2 Companies</strong>
+                <span>Amazon Development Center and Isowhiz Private Limited</span>
+              </div>
+              <div class="stat">
+                <strong>Cross-Stack</strong>
+                <span>Manual + automation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="section" data-reveal>
+        <h2>Professional Summary</h2>
+        <div class="intro-grid">
+          <p class="summary">
+            Detail-oriented and results-driven Senior QA Engineer with experience leading testing
+            efforts across devices, platforms, and Agile teams. Strong in functional, regression,
+            exploratory, and protocol testing, with a focus on root cause analysis, execution quality,
+            and clear communication.
+          </p>
+          <div class="highlight-box">
+            <h3>What recruiters should remember</h3>
+            <ul class="highlight-list">
+              <li>Hands-on QA across manual, automation, device, and protocol testing</li>
+              <li>Strong bug reporting, triage, and root cause analysis skills</li>
+              <li>Comfortable working with Agile teams and cross-functional stakeholders</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured-work" data-reveal>
+        <h2>Featured Work</h2>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="tag">Automation</div>
+            <h3>Playwright test coverage</h3>
+            <p>Built or supported end-to-end automation for stable regression coverage and faster
+              validation.</p>
+            <ul>
+              <li>Tools: Playwright, JIRA, Agile workflow</li>
+              <li>Impact: Add your measurable result here</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <div class="tag">Device QA</div>
+            <h3>Multi-device validation</h3>
+            <p>Tested devices across functional, sanity, regression, and exploratory scenarios.</p>
+            <ul>
+              <li>Platforms: Tablets, Fire TV, audio devices, e-readers</li>
+              <li>Impact: Add defect reduction or release quality here</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <div class="tag">Protocol Testing</div>
+            <h3>Wi-Fi and network validation</h3>
+            <p>Executed Wi-Fi automation and TCP/UDP validation to support reliability and stability.</p>
+            <ul>
+              <li>Tools: iPerf, ACT runs</li>
+              <li>Impact: Add your performance or stability result here</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="experience" data-reveal>
+        <h2>Experience</h2>
+        <div class="grid-2">
+          <article class="card">
+            <div class="company">Amazon Development Center</div>
+            <div class="role">Software Test Engineer | 3.5 Years</div>
+            <ul>
+              <li>Led QA activities across multiple Amazon devices with a focus on on-time delivery and
+                high standards.</li>
+              <li>Handled sanity, functional, regression, exploratory, and performance testing.</li>
+              <li>Validated tablets, Fire TV, audio devices, and e-readers.</li>
+              <li>Executed Wi-Fi automation scripts and ACT runs to verify automation stability.</li>
+              <li>Performed co-existence testing and TCP/UDP validation using iPerf.</li>
+              <li>Provided floor support, audit feedback, weekly triage reports, and root cause analysis.
+              </li>
+            </ul>
+            <div class="achievement">
+              <strong>Achievement</strong>
+              <p class="summary">Optimized test cases and designed an audit strategy that improved
+                execution quality and reduced misses. Add a metric here if you have one, such as time
+                saved or defect reduction.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="company">Isowhiz Private Limited</div>
+            <div class="role">Software Test Engineer | 1.5 Years</div>
+            <ul>
+              <li>Implemented integrated Playwright automation for end-to-end test coverage.</li>
+              <li>Performed regression, smoke, and sanity testing in an Agile environment.</li>
+              <li>Logged and tracked defects in JIRA while partnering with developers for timely
+                resolution.</li>
+              <li>Prepared reports, documentation, and user manuals to support handover and clarity.</li>
+              <li>Participated in stand-ups, sprint planning, and review meetings.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" data-reveal>
+        <h2>Why Hire Me</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="company">Quality Ownership</div>
+            <p class="summary">I focus on prevention, not just reporting bugs, so releases ship with fewer
+              surprises.</p>
+          </div>
+          <div class="card">
+            <div class="company">Strong Collaboration</div>
+            <p class="summary">I work closely with developers, product teams, and stakeholders to close
+              issues quickly and clearly.</p>
+          </div>
+          <div class="card">
+            <div class="company">Automation Mindset</div>
+            <p class="summary">I understand where automation adds leverage and where manual exploration
+              still matters most.</p>
+          </div>
+          <div class="card">
+            <div class="company">Clear Communication</div>
+            <p class="summary">I write bug reports, status updates, and documentation that help teams move
+              faster.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-reveal>
+        <h2>Skills</h2>
+        <div class="skills">
+          <span class="skill">Manual Testing</span>
+          <span class="skill">Automation Testing</span>
+          <span class="skill">Playwright</span>
+          <span class="skill">JIRA</span>
+          <span class="skill">SQL</span>
+          <span class="skill">Functional Testing</span>
+          <span class="skill">Regression Testing</span>
+          <span class="skill">Smoke Testing</span>
+          <span class="skill">Sanity Testing</span>
+          <span class="skill">Agile</span>
+          <span class="skill">STLC</span>
+          <span class="skill">SDLC</span>
+        </div>
+      </section>
+
+      <section class="section" data-reveal>
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="company">Bachelor of Technology, Computer Science and Engineering</div>
+            <div class="meta">Visvesvaraya College of Engineering and Technology | 2016 - 2020</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-reveal>
+        <h2>Certifications</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="company">Python Programming</div>
+            <div class="meta">NPTEL | Certificate of Completion</div>
+          </div>
+          <div class="card">
+            <div class="company">Manual Testing</div>
+            <div class="meta">Certified QA Professional</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" data-reveal>
+        <h2>Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span>Name</span>
+            <strong>Madhuri Bachu</strong>
+          </div>
+          <div class="contact-item">
+            <span>Email</span>
+            <strong>bachumadhuri7@gmail.com</strong>
+          </div>
+          <div class="contact-item">
+            <span>Phone</span>
+            <strong>9550693503</strong>
+          </div>
+          <div class="contact-item">
+            <span>Role</span>
+            <strong>Senior QA Engineer</strong>
+          </div>
+          <div class="contact-item">
+            <span>LinkedIn</span>
+            <strong><a href="https://www.linkedin.com/in/madhuri-bachu-789389244/" target="_blank" rel="noreferrer"
+                style="color: inherit; text-decoration: none;">linkedin.com/in/madhuri-bachu-789389244</a></strong>
+          </div>
+
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Madhuri Bachu | Senior QA Engineer</p>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll("[data-reveal]");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: "0px 0px -40px 0px"
+      });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("visible"));
+    }
+  </script>
+</body>
+
+</html>
