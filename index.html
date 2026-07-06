@@ -543,17 +543,41 @@
 
     @media (max-width: 640px) {
       .hero {
-        padding-top: 28px;
+        padding: 18px 0 28px;
       }
 
       .container {
         width: min(100% - 20px, 1120px);
       }
 
+      .hero h1 {
+        font-size: clamp(2rem, 11vw, 2.9rem);
+      }
+
+      .hero p,
+      .summary {
+        font-size: 0.98rem;
+      }
+
       .hero-card,
       .section {
-        padding: 22px;
+        padding: 20px;
         border-radius: 20px;
+      }
+
+      .hero-card {
+        gap: 24px;
+      }
+
+      .hero-actions,
+      .link-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button,
+      .link-pill {
+        width: 100%;
       }
 
       .mini-stats {
@@ -563,6 +587,31 @@
       .profile-pic-wrap {
         width: 176px;
         height: 176px;
+      }
+
+      .section h2 {
+        font-size: 1.28rem;
+      }
+
+      .card,
+      .feature-card,
+      .highlight-box,
+      .contact-item {
+        padding: 16px;
+        border-radius: 16px;
+      }
+
+      .skills {
+        gap: 10px;
+      }
+
+      .skill {
+        width: 100%;
+        text-align: center;
+      }
+
+      .contact-item strong {
+        word-break: break-word;
       }
     }
 
@@ -822,6 +871,7 @@
             <strong><a href="https://www.linkedin.com/in/madhuri-bachu-789389244/" target="_blank" rel="noreferrer"
                 style="color: inherit; text-decoration: none;">linkedin.com/in/madhuri-bachu-789389244</a></strong>
           </div>
+        </div>
 
       </section>
     </div>
